@@ -12,10 +12,13 @@ public interface Messages {
     String SUCCESSFULLY_ADDED_TOWN = "Successfully added town!\n";
     String ENTER_SHOP_DETAILS = "Enter shop details in format: name address town\n";
     String SHOP_EXISTS = "The shop already exists in the database!\n";
+    String SHOP_NOT_EXISTS = "The shop is not in the database!\n";
     String SUCCESSFULLY_ADDED_SHOP = "Successfully added shop!\n";
     String INVALID_SHOP_OR_ADDRESS_NAME = "Name and address must be minimum two characters!\n";
     String ENTER_SELLER_DETAILS = "Enter seller details in format: firstName lastName age salary shopName\n";
+    String SELLER_EXISTS = "The seller already exists in the database!\n";
     String SUCCESSFULLY_ADDED_SELLER = "Successfully added seller!\n";
+    String INVALID_SELLER_INFO = "Seller first and last name must be minimum two characters, age must be at least 18 years and salary a positive number!\n";
     String ENTER_PRODUCT_DETAILS = "Enter seller details in format: name price bestBefore(dd-MM-yyyy) category\n";
     String SUCCESSFULLY_ADDED_PRODUCT = "Successfully added product!\n";
     String ENTER_SELLER_NAMES = "Enter seller first and last names:\n";

@@ -78,4 +78,9 @@ public class ShopServiceImpl implements ShopService {
         }
 
     }
+
+    @Override
+    public Shop getShopByName(String shopName) {
+        return this.shopRepository.findShopByName(shopName).orElse(null);
+    }
 }

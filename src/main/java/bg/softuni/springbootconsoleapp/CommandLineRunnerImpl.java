@@ -1,6 +1,7 @@
 package bg.softuni.springbootconsoleapp;
 
 import bg.softuni.springbootconsoleapp.service.impl.CategoryServiceImpl;
+import bg.softuni.springbootconsoleapp.service.impl.SellerServiceImpl;
 import bg.softuni.springbootconsoleapp.service.impl.ShopServiceImpl;
 import bg.softuni.springbootconsoleapp.service.impl.TownServiceImpl;
 import bg.softuni.springbootconsoleapp.utills.MenuOptions;
@@ -17,12 +18,14 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
     private final CategoryServiceImpl categoryService;
     private final TownServiceImpl townService;
     private final ShopServiceImpl shopService;
+    private final SellerServiceImpl sellerService;
 
     @Autowired
-    public CommandLineRunnerImpl(CategoryServiceImpl categoryService, TownServiceImpl townService, ShopServiceImpl shopService) {
+    public CommandLineRunnerImpl(CategoryServiceImpl categoryService, TownServiceImpl townService, ShopServiceImpl shopService, SellerServiceImpl sellerService) {
         this.categoryService = categoryService;
         this.townService = townService;
         this.shopService = shopService;
+        this.sellerService = sellerService;
     }
 
     @Override
@@ -51,6 +54,9 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
                     this.shopService.importShop(input);
                     break;
                 case "4":
+                    System.out.println(Messages.ENTER_SELLER_DETAILS);
+                    input = scanner.nextLine();
+                    this.sellerService.importSeller(input);
                     break;
                 case "5":
                     break;
