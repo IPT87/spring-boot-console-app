@@ -7,9 +7,13 @@ public interface Messages {
     String SUCCESSFULLY_ADDED_CATEGORY = "Successfully added category!\n==================================\n";
     String INVALID_CATEGORY_NAME = "Name must be minimum two characters!\n";
     String ENTER_TOWN_NAME = "Enter town name:\n";
+    String TOWN_EXISTS = "The town already exists in the database!\n";
+    String TOWN_NOT_EXISTS = "The town is not in the database!\n";
     String SUCCESSFULLY_ADDED_TOWN = "Successfully added town!\n";
     String ENTER_SHOP_DETAILS = "Enter shop details in format: name address town\n";
+    String SHOP_EXISTS = "The shop already exists in the database!\n";
     String SUCCESSFULLY_ADDED_SHOP = "Successfully added shop!\n";
+    String INVALID_SHOP_OR_ADDRESS_NAME = "Name and address must be minimum two characters!\n";
     String ENTER_SELLER_DETAILS = "Enter seller details in format: firstName lastName age salary shopName\n";
     String SUCCESSFULLY_ADDED_SELLER = "Successfully added seller!\n";
     String ENTER_PRODUCT_DETAILS = "Enter seller details in format: name price bestBefore(dd-MM-yyyy) category\n";
