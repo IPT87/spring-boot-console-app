@@ -121,6 +121,17 @@ public class ShopServiceImpl implements ShopService {
         for (Seller seller : sellers) {
             System.out.println(seller.getFirstName().concat(" ").concat(seller.getLastName()));
         }
+
+    }
+
+    @Override
+    public void getProducts(String shopName) {
+        List<Product> products = this.shopRepository.findShopByName(shopName).get().getProducts();
+
+        for (Product product : products) {
+            System.out.println(product.getName());
+        }
+
     }
 
 }

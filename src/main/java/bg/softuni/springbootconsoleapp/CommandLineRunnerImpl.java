@@ -88,6 +88,9 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
                     this.shopService.getSellers(input);
                     break;
                 case "9":
+                    System.out.println(Messages.ENTER_SHOP_NAME);
+                    input = scanner.nextLine();
+                    this.shopService.getProducts(input);
                     break;
                 default:
                     System.out.println(Messages.INVALID_INPUT_MESSAGE);
