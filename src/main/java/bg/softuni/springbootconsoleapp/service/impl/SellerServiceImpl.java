@@ -82,4 +82,19 @@ public class SellerServiceImpl implements SellerService {
         String shopName = sellerData[4];
         return this.shopService.isShopImported(shopName);
     }
+
+    @Override
+    public Seller getSellerByFirstAndLastNme(String sellerFirstName, String sellerLastName) {
+        return this.sellerRepository.findSellerByFirstNameAndLastName(sellerFirstName, sellerLastName).orElse(null);
+    }
+
+    @Override
+    public void addManager(String sellerFirstName, String sellerLastName, String managerFirstName, String managerLastName) {
+        Seller seller = getSellerByFirstAndLastNme(sellerFirstName, sellerLastName);
+        Seller manager = getSellerByFirstAndLastNme(managerFirstName, managerLastName);
+        seller.setManagerId(manager.getId());
+
+        this.sellerRepository.save(seller);
+        System.out.println(Messages.SUCCESSFULLY_ADDED_MANAGER);
+    }
 }

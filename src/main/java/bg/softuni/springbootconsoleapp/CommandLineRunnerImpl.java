@@ -63,6 +63,17 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
                     this.productService.importProduct(input);
                     break;
                 case "6":
+                    System.out.println(Messages.ENTER_SELLER_NAMES);
+                    input = scanner.nextLine();
+                    String[] sellerNames = input.split(" ");
+                    String sellerFirstName = sellerNames[0];
+                    String sellerLastName = sellerNames[1];
+                    System.out.println(Messages.ENTER_MANAGER_NAMES);
+                    input = scanner.nextLine();
+                    String[] managerNames = input.split(" ");
+                    String managerFirstName = managerNames[0];
+                    String managerLastName = managerNames[1];
+                    this.sellerService.addManager(sellerFirstName, sellerLastName, managerFirstName, managerLastName);
                     break;
                 case "7":
                     break;
