@@ -19,8 +19,10 @@ public interface Messages {
     String SELLER_EXISTS = "The seller already exists in the database!\n";
     String SUCCESSFULLY_ADDED_SELLER = "Successfully added seller!\n";
     String INVALID_SELLER_INFO = "Seller first and last name must be minimum two characters, age must be at least 18 years and salary a positive number!\n";
-    String ENTER_PRODUCT_DETAILS = "Enter seller details in format: name price bestBefore(dd-MM-yyyy) category\n";
+    String ENTER_PRODUCT_DETAILS = "Enter product details in format: name price bestBefore(dd-MM-yyyy) category\n";
     String SUCCESSFULLY_ADDED_PRODUCT = "Successfully added product!\n";
+    String PRODUCT_EXISTS = "The product already exists in the database!\n";
+    String INVALID_PRODUCT_DETAILS = "The product name must be minimum two characters and the price an positive number\n";
     String ENTER_SELLER_NAMES = "Enter seller first and last names:\n";
     String ENTER_MANAGER_NAMES = "Enter manager first and last names:\n";
     String SUCCESSFULLY_ADDED_MANAGER = "Successfully added manager!\n";
