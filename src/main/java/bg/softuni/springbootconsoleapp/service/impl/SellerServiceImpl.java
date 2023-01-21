@@ -63,6 +63,7 @@ public class SellerServiceImpl implements SellerService {
                 if (isValidSeller && isValidShop) {
                     seller.setShop(shop);
                     this.sellerRepository.save(seller);
+                    this.shopService.addSellerToShop(shop.getName(), seller);
                     System.out.println(Messages.SUCCESSFULLY_ADDED_SELLER);
                 } else {
                     System.out.println(Messages.INVALID_SELLER_INFO);

@@ -2,6 +2,7 @@ package bg.softuni.springbootconsoleapp.service.impl;
 
 import bg.softuni.springbootconsoleapp.domain.dto.ShopDto;
 import bg.softuni.springbootconsoleapp.domain.entity.Product;
+import bg.softuni.springbootconsoleapp.domain.entity.Seller;
 import bg.softuni.springbootconsoleapp.domain.entity.Shop;
 import bg.softuni.springbootconsoleapp.domain.entity.Town;
 import bg.softuni.springbootconsoleapp.repository.ShopRepository;
@@ -11,6 +12,8 @@ import bg.softuni.springbootconsoleapp.utills.ValidationUtilsImpl;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class ShopServiceImpl implements ShopService {
@@ -101,6 +104,23 @@ public class ShopServiceImpl implements ShopService {
         }
 
         System.out.println(Messages.SUCCESSFULLY_ADDED_PRODUCT_DISTRIBUTION);
+    }
+
+    @Override
+    public void addSellerToShop(String shopName, Seller seller) {
+        Shop shop = this.shopRepository.findShopByName(shopName).get();
+
+        shop.getSellers().add(seller);
+        this.shopRepository.save(shop);
+    }
+
+    @Override
+    public void getSellers(String shopName) {
+        List<Seller> sellers = this.shopRepository.findShopByName(shopName).get().getSellers();
+
+        for (Seller seller : sellers) {
+            System.out.println(seller.getFirstName().concat(" ").concat(seller.getLastName()));
+        }
     }
 
 }

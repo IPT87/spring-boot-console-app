@@ -83,6 +83,9 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
                     this.shopService.addProductToShop(productName, shopNames);
                     break;
                 case "8":
+                    System.out.println(Messages.ENTER_SHOP_NAME);
+                    input = scanner.nextLine();
+                    this.shopService.getSellers(input);
                     break;
                 case "9":
                     break;
