@@ -1,6 +1,7 @@
 package bg.softuni.springbootconsoleapp.service.impl;
 
 import bg.softuni.springbootconsoleapp.domain.dto.ShopDto;
+import bg.softuni.springbootconsoleapp.domain.entity.Product;
 import bg.softuni.springbootconsoleapp.domain.entity.Shop;
 import bg.softuni.springbootconsoleapp.domain.entity.Town;
 import bg.softuni.springbootconsoleapp.repository.ShopRepository;
@@ -16,14 +17,16 @@ public class ShopServiceImpl implements ShopService {
 
     private final ShopRepository shopRepository;
     private final TownServiceImpl townService;
+    private final ProductServiceImpl productService;
     private final ModelMapper mapper;
     private final ValidationUtilsImpl validator;
     private String[] shopData;
 
     @Autowired
-    public ShopServiceImpl(ShopRepository shopRepository, TownServiceImpl townService, ModelMapper mapper, ValidationUtilsImpl validator) {
+    public ShopServiceImpl(ShopRepository shopRepository, TownServiceImpl townService, ProductServiceImpl productService, ModelMapper mapper, ValidationUtilsImpl validator) {
         this.shopRepository = shopRepository;
         this.townService = townService;
+        this.productService = productService;
         this.mapper = mapper;
         this.validator = validator;
     }
@@ -83,4 +86,21 @@ public class ShopServiceImpl implements ShopService {
     public Shop getShopByName(String shopName) {
         return this.shopRepository.findShopByName(shopName).orElse(null);
     }
+
+    @Override
+    public void addProductToShop(String productName, String[] shops) {
+
+        Shop shop;
+        Product product;
+
+        for (String s : shops) {
+            shop = this.shopRepository.findShopByName(s).get();
+            product = this.productService.getProductByName(productName);
+            shop.getProducts().add(product);
+            this.shopRepository.save(shop);
+        }
+
+        System.out.println(Messages.SUCCESSFULLY_ADDED_PRODUCT_DISTRIBUTION);
+    }
+
 }

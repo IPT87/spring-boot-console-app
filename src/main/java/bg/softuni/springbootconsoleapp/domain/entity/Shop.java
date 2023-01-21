@@ -28,7 +28,7 @@ public class Shop extends BaseEntity {
     @ManyToOne
     private Town town;
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     private List<Product> products;
 
 }

@@ -8,5 +8,6 @@ public interface ShopService {
     boolean isExistingTown(String shopInfo);
     void importShop(String shopInfo);
     Shop getShopByName(String shopName);
+    void addProductToShop(String productName, String[] shops);
 
 }
